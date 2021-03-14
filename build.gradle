@@ -1,0 +1,56 @@
+buildscript {
+    ext {
+        springBootVersion = '2.4.3.RELEASE'
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+
+group = 'com.sentilab'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //security
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+    //starter
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.4.1'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+    //db
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+    implementation("mysql:mysql-connector-java")
+    implementation("org.mariadb.jdbc:mariadb-java-client:2.1.2")
+
+    //3rd party util
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
+    implementation 'org.apache.commons:commons-lang3:3.0'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
