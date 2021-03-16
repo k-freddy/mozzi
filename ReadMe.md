@@ -1,7 +1,9 @@
 ## MoZZi Project
 
-- DDL은 프로젝트 위키 참조
+- DDL at peoject page
 - 프로젝트 Thanks to
-    - DEV : freddy, iK
-    - Test&Review : wairano, golden
+    - Development : freddy, iK
+    - Reviewer : wairano, golden
 
+- Project Build via Docker 
+    - Blank   

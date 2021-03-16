@@ -1,3 +1,7 @@
+group = 'com.sentilab'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
 buildscript {
     ext {
         springBootVersion = '2.4.3.RELEASE'
@@ -14,10 +18,9 @@ plugins {
     id 'war'
 }
 
-
-group = 'com.sentilab'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+bootJar {
+    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
+}
 
 repositories {
     mavenCentral()
