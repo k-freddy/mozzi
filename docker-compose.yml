@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  mozzi_database:
+    container_name: mozzi_database
+    image: mariadb
+    environment:
+        MYSQL_ROOT_PASSWORD: mozzi
+        MYSQL_DATABASE: mozzi
+        MYSQL_USER: mozzi
+        MYSQL_PASSWORD: mozzi
+    ports:
+      - 3306:3306
+
+
+  mozzi:
+      image: openjdk:8
+      container_name: mozzi
+      restart: always
+      volumes:
+        - C:\Users\freddy\Documents\mozzi\mozzi
+      command: 'java -jar mozzi.jar'
+      ports:
+        - '8080:8080'
+      environment:
+        SPRING_PROFILES_ACTIVE: 'dockercompose'
+      depends_on:
+        - mozzi_database
