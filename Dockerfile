@@ -10,4 +10,6 @@ ARG JAR_FILE=./build/libs/*.jar
 
 COPY ${JAR_FILE} mozzi.jar
 
+ADD ${JAR_FILE} mozzi.jar
+
 ENTRYPOINT ["java", "-jar", "/mozzi.jar"]

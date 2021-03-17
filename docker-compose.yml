@@ -16,13 +16,19 @@ services:
   mozzi:
       image: openjdk:8
       container_name: mozzi
-      restart: always
-      volumes:
-        - C:\Users\freddy\Documents\mozzi\mozzi
-      command: 'java -jar mozzi.jar'
-      ports:
-        - '8080:8080'
+      build:
+        context: .
+        dockerfile: Dockerfile
       environment:
         SPRING_PROFILES_ACTIVE: 'dockercompose'
+        MYSQL_ROOT_PASSWORD: mozzi
+        MYSQL_DATABASE: mozzi
+        MYSQL_USER: mozzi
+        MYSQL_PASSWORD: mozzi
+      ports:
+        - 8080:8080
+      restart: always
+      links:
+        - mozzi_database
       depends_on:
         - mozzi_database
