@@ -20,7 +20,7 @@ public class MenuEntity {
     private String img;
 
     @ManyToOne
-    @Column(name = "SHOP_ID")
+    @JoinColumn(name = "SHOP_ID")
     private ShopEntity shopId;
 
 }

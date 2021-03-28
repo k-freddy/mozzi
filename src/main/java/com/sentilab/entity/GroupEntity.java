@@ -15,7 +15,7 @@ public class GroupEntity {
     private int id;
 
     @ManyToOne
-    @Column(name = "SHOP_ID")
+    @JoinColumn(name = "SHOP_ID")
     private ShopEntity shopId;
 
     @Column(name = "GROUP_START_DATETIME")

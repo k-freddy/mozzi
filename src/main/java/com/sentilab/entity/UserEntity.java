@@ -1,6 +1,8 @@
 package com.sentilab.entity;
 
+import com.sentilab.dto.UserDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Getter
+@NoArgsConstructor
 @Table (name = "USER")
 public class UserEntity {
 
@@ -27,5 +30,13 @@ public class UserEntity {
 
     @Column(name = "USER_PHONE_NUM")
     private String phoneNum;
+
+    public UserEntity(UserDto userDto) {
+        this.id = userDto.getUserId();
+        this.pw = userDto.getUserPw();
+        this.email = userDto.getEmail();
+        this.name = userDto.getName();
+        this.phoneNum = userDto.getPhoneNum();
+    }
 
 }
