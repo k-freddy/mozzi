@@ -15,14 +15,14 @@ public class ShopCommentEntity {
     private int id;
 
     @ManyToOne
-    @Column(name = "SHOP_ID")
+    @JoinColumn(name = "SHOP_ID")
     private ShopEntity shopId;
 
     @Column(name = "COMMENT_VAL")
     private String commentValue;
 
     @ManyToOne
-    @Column(name = "USER_ID")
+    @JoinColumn(name = "USER_ID")
     private UserEntity userId;
 
     @Column(name = "COMMENT_CREATE_DATETIME")
@@ -32,7 +32,7 @@ public class ShopCommentEntity {
     private LocalDateTime updateDateTime;
 
     @OneToOne
-    @Column(name = "RESERVATION_ID")
+    @JoinColumn(name = "RESERVATION_ID")
     private ReservationEntity reservationId;
 
     @Column(name = "COMMENT_DELETE_DATETIME")

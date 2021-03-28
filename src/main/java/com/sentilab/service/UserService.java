@@ -10,6 +10,8 @@ public interface UserService {
 
     UserDto getUserInfo(String id);
 
-    void joinUser(UserJoinInfoVo joinInfoVo) throws InvalidKeySpecException, NoSuchAlgorithmException;
+    boolean joinUser(UserJoinInfoVo joinInfoVo) throws InvalidKeySpecException, NoSuchAlgorithmException;
+
+    int countUser(String id);
 
 }
