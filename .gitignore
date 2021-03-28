@@ -230,3 +230,6 @@ buildNumber.properties
 
 # "temporary" build files
 /target
+
+#dev properties file
+application-dev.properties
