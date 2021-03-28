@@ -2,6 +2,7 @@ package com.sentilab.entity;
 
 import com.sentilab.dto.UserDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Getter
+@NoArgsConstructor
 @Table (name = "USER")
 public class UserEntity {
 

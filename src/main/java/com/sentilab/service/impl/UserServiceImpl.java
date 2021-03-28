@@ -24,13 +24,18 @@ public class UserServiceImpl implements UserService {
         UserDto userDto = UserDto.builder()
                 .userId(userEntity.getId())
                 .phoneNum(userEntity.getPhoneNum())
+                .userPw(userEntity.getPw())
                 .name(userEntity.getName())
                 .email(userEntity.getEmail()).build();
         return userDto;
     }
 
     @Override
-    public void joinUser(UserJoinInfoVo joinInfoVo) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    public boolean joinUser(UserJoinInfoVo joinInfoVo) throws InvalidKeySpecException, NoSuchAlgorithmException {
+
+        if (countUser(joinInfoVo.getUserId()) > 0) {
+            return false;
+        }
 
         String encryptionPassword = PBKDF2Encryption.createHash(joinInfoVo.getUserPw());
         UserDto userDto = UserDto.builder()
@@ -41,6 +46,12 @@ public class UserServiceImpl implements UserService {
                 .email(joinInfoVo.getEmail()).build();
 
         userRepository.save(new UserEntity(userDto));
+        return true;
+    }
+
+    @Override
+    public int countUser(String id) {
+        return userRepository.countById(id);
     }
 
 }

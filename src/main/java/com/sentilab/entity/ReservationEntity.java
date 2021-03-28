@@ -15,15 +15,15 @@ public class ReservationEntity {
     private int id;
 
     @ManyToOne
-    @Column(name = "MENU_ID")
+    @JoinColumn(name="MENU_ID")
     private MenuEntity menuId;
 
     @ManyToOne
-    @Column(name = "GROUP_ID")
+    @JoinColumn(name = "GROUP_ID")
     private GroupEntity groupId;
 
     @ManyToOne
-    @Column(name = "USER_ID")
+    @JoinColumn(name = "USER_ID")
     private UserEntity userId;
 
 }
